@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: vault-essentials
+  config:
+    import: vault://
+  cloud:
+    vault:
+      scheme: http
+      host: 127.0.0.1
+      port: 8200
+      authentication: token
+      kv:
+        enabled: true
+        application-name: postgresDBVault
+        backend: secret
+      token: myroot
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env, health
